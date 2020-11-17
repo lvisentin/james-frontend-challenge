@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EstablishmentCardComponent } from './shared/establishment-card/establishment-card.component';
+import { EstablishmentListModule } from './modules/establishment-list/establishment-list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EstablishmentCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EstablishmentListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

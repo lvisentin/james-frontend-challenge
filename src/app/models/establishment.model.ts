@@ -1,6 +1,6 @@
 export interface Establishment {
     id: string,
-    index: string,
+    index: number,
     guid: string,
     picture: string,
     name: string,
