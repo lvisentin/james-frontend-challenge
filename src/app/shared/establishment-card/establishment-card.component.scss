@@ -1,0 +1,41 @@
+.establishment-card {
+    display: flex;
+    align-items: center;
+
+    .card-img-aside {
+        img {
+            border-radius: 5px;
+            width: 74px;
+            height: 74px;
+        }
+    }
+
+    .card-info-aside {
+        margin-left: 20px;
+
+        .card-info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .card-info-name {
+                font-size: 18px;
+                font-weight: 700;
+                color: #4C5164;
+                margin: 0;
+            }
+
+            .card-info-id {
+                color: #81879C;
+                font-size: 14px;
+                margin: 0 0 0 10px;
+            }
+        }
+
+        .card-info-footer {
+            font-size: 15px;
+            color: #81879C;
+            font-weight: 500;
+        }
+    }
+}
