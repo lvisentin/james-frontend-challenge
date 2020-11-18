@@ -5,17 +5,23 @@ import { EstablishmentCardComponent } from 'src/app/shared/establishment-card/es
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxLoadingModule } from 'ngx-loading';
+import { EstablishmentPageComponent } from '../establishment-page/establishment-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     EstablishmentListComponent,
-    EstablishmentCardComponent
+    EstablishmentCardComponent,
+    EstablishmentPageComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     SharedModule,
     NgxLoadingModule.forRoot({}),
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   schemas: [

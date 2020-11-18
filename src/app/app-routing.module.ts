@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EstablishmentListComponent } from './modules/establishment-list/establishment-list.component';
+import { EstablishmentListComponent } from './modules/establishments/establishment-list/establishment-list.component';
+import { EstablishmentPageComponent } from './modules/establishments/establishment-page/establishment-page.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: EstablishmentListComponent
+  },
+  {
+    path: 'establishment/:id',
+    component: EstablishmentPageComponent
   }
 ];
 

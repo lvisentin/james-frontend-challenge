@@ -1,8 +1,8 @@
 @font-face{
     font-family: 'Margem';
-    src: url('/assets/fonts/Margem Medium');
+    src: url('/assets/fonts/Margem-Medium.otf');
 }
 
-* {
+p, h4, span, label{
     font-family: 'Margem';
 }

@@ -1,0 +1,92 @@
+<james-header></james-header>
+
+<main id="main-content">
+    <header class="establishment-page-header">
+        <aside class="establishment-header-img-aside">
+            <a routerLink="/home">
+                <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5924 4.82723H4.42716L6.25878 2.95095C6.70754 2.49122 6.70754 1.74584 6.25878 1.28618C5.81 0.826445 5.08238 0.826445 4.63362 1.28618L0.841599 5.17067C0.392839 5.63033 0.392839 6.37571 0.841599 6.83545L4.63362 10.72C5.08238 11.1796 5.81 11.1796 6.25878 10.72C6.70754 10.2602 6.70754 9.51483 6.25878 9.05517L4.42716 7.17898H18.5924C19.2301 7.17898 19.7468 6.65609 19.7468 6.01119V5.99501C19.7468 5.35011 19.2301 4.82723 18.5924 4.82723Z" fill="#363840"/>
+                </svg>
+            </a>
+            <img [src]="establishment.picture">
+        </aside>
+        <aside class="establishment-header-info-aside">
+            <h4 class="establishment-name">{{establishment.name}}</h4>
+            <p class="establishment-id">ID: {{establishment.id}}</p>
+
+        </aside>
+    </header>
+    <form [formGroup]="establishmentForm">
+        <main class="establishment-page-content">
+            <section id="section-establishment-info">
+                <h4 class="establishment-title">Informações Básicas</h4>
+                <hr>
+                <div class="input-row">
+                    <div class="establishment-input-div">
+                        <label for="name" class="establishment-input-label">Nome</label><br>
+                        <input name="name" placeholder="Nome" formControlName="name" class="establishment-input">
+                    </div>
+        
+                    <div class="establishment-input-div">
+                        <label for="city" class="establishment-input-label">Cidade</label><br>
+                        <input name="city" placeholder="Cidade" formControlName="address" class="establishment-input">
+                    </div>
+        
+                    <div class="establishment-input-div">
+                        <label for="address" class="establishment-input-label">Endereço</label><br>
+                        <input name="address" placeholder="Endereço" formControlName="address" class="establishment-input">
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-establishment-finances">
+                <h4 class="establishment-title">Financeiro</h4>
+                <hr>
+                <div class="input-row">
+                    <div class="establishment-input-div">
+                        <label for="bank" class="establishment-input-label">Banco</label><br>
+                        <input name="bank" placeholder="banco" formControlName="bank" class="establishment-input">
+                    </div>
+
+                    <div class="establishment-input-div">
+                        <label for="account_type" class="establishment-input-label">Tipo de Conta</label><br>
+                        <select name="account_type" class="establishment-select" formControlName="account_type">
+                            <option>Conta corrente</option>
+                            <option>Conta poupança</option>
+                        </select>
+                    </div>
+
+                    <div class="establishment-input-div">
+                        <label for="document" class="establishment-input-label">CPF/CNPJ</label><br>
+                        <input name="document" placeholder="Documento" class="establishment-input" formControlName="document" mask="000.000.000-00||00.000.000/0000-00">
+                    </div>
+                </div>
+
+                <div class="input-row">    
+                    <div class="establishment-input-div">
+                        <label for="agency" class="establishment-input-label">Agência</label><br>
+                        <input name="agency" placeholder="Agência" formControlName="agency" class="establishment-input establishment-medium-input">
+                        <input nome="agency_digit" class="establishment-input establishment-small-input" formControlName="agency_digit" placeholder="Dígito">
+                    </div>
+                    
+                    <div class="establishment-input-div">
+                        <label for="account" class="establishment-input-label">Conta</label><br>
+                        <input name="account" placeholder="Conta" class="establishment-input establishment-medium-input">
+                        <input nome="account_digit" class="establishment-input establishment-small-input" placeholder="Dígito">
+                    </div>
+
+                    <div class="establishment-input-div">
+                        <label for="auto_withdraw" class="establishment-input-label">Saque automático?</label><br>
+                        <select name="auto_withdraw" class="establishment-select">
+                            <option value="s">Sim</option>
+                            <option value="n">Não</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="submit-row">
+            <button class="btn-submit">Salvar</button>
+        </div>
+    </form>
+</main>

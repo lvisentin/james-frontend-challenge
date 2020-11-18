@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Establishment } from 'src/app/models/establishment.model';
 
 @Component({
@@ -10,9 +11,19 @@ export class EstablishmentCardComponent implements OnInit {
 
   @Input('establishment') establishment: Establishment;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  goToEstablishment(establishment) {
+    this.router.navigate([`establishment/${establishment.id}`], 
+                        {queryParams: {
+                            establishment: JSON.stringify(establishment)
+                          }
+                        });
   }
 
 }
