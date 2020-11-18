@@ -11,7 +11,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
   styleUrls: ['./establishment-list.component.scss']
 })
 export class EstablishmentListComponent implements OnInit {
-  public error: boolean = true;
+  public error: boolean = false;
   public loading: boolean;
   public establishments: Array<Establishment>;
   private destroy: Subject<boolean> = new Subject<boolean>();
@@ -27,19 +27,7 @@ export class EstablishmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.establishmentService
-      .getEstablishments()
-      .pipe(takeUntil(this.destroy))
-      .subscribe((establishmentResponse) => {
-        this.loading = false;
-        establishmentResponse.map((establishment) => {
-          this.insertEstablishment(establishment);
-        })
-        this.getDBEstablishments();
-      }, (err) => {
-        console.log('ocorreu um erro');
-      })
+    this.getDBEstablishments();
   }
 
   insertEstablishment(establishment) {
@@ -57,20 +45,39 @@ export class EstablishmentListComponent implements OnInit {
         latitude: establishment.latitude,
         longitude: establishment.longitude,
       })
+      .pipe(takeUntil(this.destroy))
       .subscribe((result) => {
-        // console.log('result', result)
+        console.log('result', result)
       }, (err) => {
-        console.log('err', err)
+        console.log('deu erro 2', err)
+        this.error = true;
       })
   }
 
   getDBEstablishments(){
+    this.loading = true;
     this.dbService
       .getAll('establishments')
+      .pipe(takeUntil(this.destroy))
       .subscribe((establishments) => {
         console.log('establishments', establishments)
         this.establishments = establishments;
+        this.loading = false;
+      }, (err) => {
+        console.log('deu erro 3')
+        this.error = true;
       })  
+  }
+
+  getDBEstablishment(id){
+    this.dbService
+      .getByKey('establishments', id)
+      .pipe(takeUntil(this.destroy))
+      .subscribe((result) => {
+        this.establishments = result;
+      }, (err) => {
+        console.log('err', err)
+      })
   }
 
 }

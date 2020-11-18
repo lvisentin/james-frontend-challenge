@@ -7,6 +7,8 @@ import { EstablishmentListModule } from './modules/establishments/establishment-
 import { NgxLoadingModule } from 'ngx-loading';
 import { SharedModule } from './shared/shared.module';
 import { DBConfig, NgxIndexedDBModule, NgxIndexedDBService } from 'ngx-indexed-db';
+import { EstablishmentService } from './services/establishment.service';
+import { InitService } from './services/init.service';
 
 const dbConfig: DBConfig  = {
   name: 'establishmentsDb',
@@ -25,6 +27,12 @@ const dbConfig: DBConfig  = {
       { name:'registered', keypath: 'registered', options: {unique: false}},
       { name:'latitude', keypath: 'latitude', options: {unique: false}},
       { name:'longitude', keypath: 'longitude', options: {unique: false}},
+      {name: 'bank', keypath:'bank', options: {unique: false}},
+      {name: 'account_type', keypath:'account_type', options: {unique: false}},
+      {name: 'document', keypath:'document', options: {unique: false}},
+      {name: 'agency', keypath:'agency', options: {unique: false}},
+      {name: 'account', keypath:'account', options: {unique: false}},
+      {name: 'auto_withdraw', keypath:'auto_withdraw', options: {unique: false}},
     ]
   }]
 };
@@ -41,11 +49,11 @@ const dbConfig: DBConfig  = {
     NgxLoadingModule.forRoot({}),
     NgxIndexedDBModule.forRoot(dbConfig)
   ],
-  providers: [NgxIndexedDBService, {provide:APP_INITIALIZER, useFactory: clearDb, deps: [NgxIndexedDBService], multi: true}],
+  providers: [{provide:APP_INITIALIZER, useFactory: initializeDb, deps: [InitService], multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export function clearDb(config: NgxIndexedDBService) {
-  return () => config.clear('establishments');
+export function initializeDb(initService: InitService) {
+  return () => initService.init();
 }

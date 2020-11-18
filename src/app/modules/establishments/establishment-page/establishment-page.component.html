@@ -1,9 +1,12 @@
+<james-loading [show]="loading"></james-loading>
+<james-error [show]="error"></james-error>
+
 <james-header></james-header>
 
 <main id="main-content">
     <header class="establishment-page-header">
         <aside class="establishment-header-img-aside">
-            <a routerLink="/home">
+            <a id="back-button" routerLink="/home">
                 <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5924 4.82723H4.42716L6.25878 2.95095C6.70754 2.49122 6.70754 1.74584 6.25878 1.28618C5.81 0.826445 5.08238 0.826445 4.63362 1.28618L0.841599 5.17067C0.392839 5.63033 0.392839 6.37571 0.841599 6.83545L4.63362 10.72C5.08238 11.1796 5.81 11.1796 6.25878 10.72C6.70754 10.2602 6.70754 9.51483 6.25878 9.05517L4.42716 7.17898H18.5924C19.2301 7.17898 19.7468 6.65609 19.7468 6.01119V5.99501C19.7468 5.35011 19.2301 4.82723 18.5924 4.82723Z" fill="#363840"/>
                 </svg>
@@ -16,7 +19,7 @@
 
         </aside>
     </header>
-    <form [formGroup]="establishmentForm">
+    <form [formGroup]="establishmentForm" (ngSubmit)="submitForm()">
         <main class="establishment-page-content">
             <section id="section-establishment-info">
                 <h4 class="establishment-title">Informações Básicas</h4>
@@ -45,14 +48,14 @@
                 <div class="input-row">
                     <div class="establishment-input-div">
                         <label for="bank" class="establishment-input-label">Banco</label><br>
-                        <input name="bank" placeholder="banco" formControlName="bank" class="establishment-input">
+                        <input name="bank" placeholder="Banco" formControlName="bank" class="establishment-input">
                     </div>
 
                     <div class="establishment-input-div">
                         <label for="account_type" class="establishment-input-label">Tipo de Conta</label><br>
                         <select name="account_type" class="establishment-select" formControlName="account_type">
-                            <option>Conta corrente</option>
-                            <option>Conta poupança</option>
+                            <option selected value="cc">Conta corrente</option>
+                            <option value="cp">Conta poupança</option>
                         </select>
                     </div>
 
@@ -66,18 +69,18 @@
                     <div class="establishment-input-div">
                         <label for="agency" class="establishment-input-label">Agência</label><br>
                         <input name="agency" placeholder="Agência" formControlName="agency" class="establishment-input establishment-medium-input">
-                        <input nome="agency_digit" class="establishment-input establishment-small-input" formControlName="agency_digit" placeholder="Dígito">
+                        <!-- <input nome="agency_digit" class="establishment-input establishment-small-input" formControlName="agency_digit" placeholder="Dígito"> -->
                     </div>
                     
                     <div class="establishment-input-div">
                         <label for="account" class="establishment-input-label">Conta</label><br>
-                        <input name="account" placeholder="Conta" class="establishment-input establishment-medium-input">
-                        <input nome="account_digit" class="establishment-input establishment-small-input" placeholder="Dígito">
+                        <input name="account" placeholder="Conta" formControlName="account" class="establishment-input establishment-medium-input">
+                        <!-- <input nome="account_digit" class="establishment-input establishment-small-input" placeholder="Dígito"> -->
                     </div>
 
                     <div class="establishment-input-div">
                         <label for="auto_withdraw" class="establishment-input-label">Saque automático?</label><br>
-                        <select name="auto_withdraw" class="establishment-select">
+                        <select name="auto_withdraw" class="establishment-select" formControlName="auto_withdraw">
                             <option value="s">Sim</option>
                             <option value="n">Não</option>
                         </select>
@@ -86,7 +89,7 @@
             </section>
         </main>
         <div class="submit-row">
-            <button class="btn-submit">Salvar</button>
+            <button class="btn-submit" type="submit" [disabled]="establishmentForm.invalid">Salvar</button>
         </div>
     </form>
 </main>

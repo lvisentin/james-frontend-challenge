@@ -22,7 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxLoadingModule.forRoot({}),
     FormsModule,
     ReactiveFormsModule,
-
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

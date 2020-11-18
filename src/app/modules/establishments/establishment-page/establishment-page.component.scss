@@ -99,5 +99,18 @@ hr {
         height: 41px;
         border: none;
         font-size: 14px;
+        cursor: pointer;
+
+        &[disabled] {
+            background: #95bdb1;
+        }
     }
+}
+
+#back-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
