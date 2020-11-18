@@ -24,3 +24,7 @@ To store the data I used the ng-indexed-db library.
 ```js
 ng s
 ```
+
+### Deploy instructions
+
+For simple deploys, you can just build the application with the command `ng build --prod` and drag to a folder on the server.
