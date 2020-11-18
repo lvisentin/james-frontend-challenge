@@ -11,7 +11,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
   styleUrls: ['./establishment-list.component.scss']
 })
 export class EstablishmentListComponent implements OnInit {
-
+  public error: boolean = true;
   public loading: boolean;
   public establishments: Array<Establishment>;
   private destroy: Subject<boolean> = new Subject<boolean>();
@@ -58,7 +58,7 @@ export class EstablishmentListComponent implements OnInit {
         longitude: establishment.longitude,
       })
       .subscribe((result) => {
-        console.log('result', result)
+        // console.log('result', result)
       }, (err) => {
         console.log('err', err)
       })

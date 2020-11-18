@@ -1,0 +1,8 @@
+<div id="error-overlay" *ngIf="show"></div>
+<div class="div-error" *ngIf="show">
+    <main id="error-content">
+        <img src="assets/img/error.svg" width=32 height=32>
+        <p>Ocorreu um erro, por favor tente novamente.</p>
+        <button id="btn-error" (click)="toggleDialog()">Ok</button>
+    </main>
+</div>

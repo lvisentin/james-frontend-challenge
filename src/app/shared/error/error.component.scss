@@ -1,0 +1,34 @@
+@import '../../app.component.scss';
+
+#error-overlay {
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: fixed;
+    
+}
+
+.div-error {
+    height: 200px;
+    width: 400px;
+    left: 40%;
+    top: 40%;
+    z-index: 4;
+    position: absolute;
+    background: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#btn-error {
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    width: 111px;
+    height: 41px;
+    border: none;
+}
