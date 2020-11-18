@@ -13,7 +13,7 @@ This application was made for the James Front-end challenge and is responsible f
 
 To store the data I used the ng-indexed-db library.
 
-**Requisites:** Node.js >= 12.0.0
+**Requirements:** Node.js >= 12.0.0
 
 ### Setup
 
