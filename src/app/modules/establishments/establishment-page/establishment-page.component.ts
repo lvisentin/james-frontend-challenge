@@ -18,18 +18,18 @@ export class EstablishmentPageComponent implements OnInit {
     city: [this.establishment.address, Validators.required],
     address: [this.establishment.address, Validators.required],
     bank: [this.establishment.bank, Validators.required],
-    account_type: [this.establishment.account_type, Validators.required],
+    account_type: [this.establishment.account_type ? this.establishment.account_type  : 'cc', Validators.required],
     document: [this.establishment.document, Validators.required],
     agency: [this.establishment.agency, Validators.required],
     account: [this.establishment.account, Validators.required],
-    auto_withdraw: [this.establishment.auto_withdraw, Validators.required],
+    auto_withdraw: [this.establishment.auto_withdraw ? this.establishment.auto_withdraw : 's', Validators.required],
   })
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private dbService: NgxIndexedDBService,
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit(): void {

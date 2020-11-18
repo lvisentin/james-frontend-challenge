@@ -1,6 +1,31 @@
-# JamesFrontendChallenge
+<p align="center">
+  <a href="https://github.com/james-delivery/frontend-challenge">
+    <img src="assets/img/logo.svg" alt="Logo" width="191" height="131">
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+# Desafio front-end James
+
+Essa aplicação é responsável pela listagem e update de uma lista de estabelecimentos.
+
+**Lista de estabelecimentos retirada de:** https://my-json-server.typicode.com/james-delivery/frontend-challenge/db
+
+**Framework:** Angular 10.1.4.
+
+Para armazenamento local dos dados, usei a biblioteca ng-indexed-db.
+
+**Requisitos:** Node.js >= 12.0.0
+
+### Setup
+
+- Rode o comando `npm install` na raíz do projeto baixado.
+
+### Iniciando o servidor
+
+```js
+npm start
+```
+
 
 ## Development server
 

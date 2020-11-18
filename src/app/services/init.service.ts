@@ -19,7 +19,6 @@ export class InitService {
         this.establishmentService
           .getEstablishments()
           .subscribe((establishmentResponse) => {
-            console.log(establishmentResponse);
             establishmentResponse.map((establishment) => {
               this.dbService
                 .add('establishments', {
@@ -37,12 +36,8 @@ export class InitService {
                 })
                 .subscribe(
                   (result) => {
-                    console.log('result terminou', result);
-                    resolve();
+                    resolve(result);
                   },
-                  (err) => {
-                    console.log('deu erro 2', err);
-                  }
                 );
             });
           });
