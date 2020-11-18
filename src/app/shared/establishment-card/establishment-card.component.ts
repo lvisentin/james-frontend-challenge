@@ -13,7 +13,6 @@ export class EstablishmentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('establishment', this.establishment)
   }
 
 }

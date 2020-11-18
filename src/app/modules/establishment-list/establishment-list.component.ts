@@ -11,9 +11,9 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class EstablishmentListComponent implements OnInit {
 
-  private destroy: Subject<boolean> = new Subject<boolean>();
+  public loading: boolean;
   public establishments: Array<Establishment>;
-
+  private destroy: Subject<boolean> = new Subject<boolean>();
   constructor(
     private establishmentService: EstablishmentService
   ) { }
@@ -24,11 +24,12 @@ export class EstablishmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.loading = true;
     this.establishmentService
       .getEstablishments()
       .pipe(takeUntil(this.destroy))
       .subscribe((establishmentResponse) => {
+        this.loading = false;
         this.establishments = establishmentResponse;
       }, (err) => {
         console.log('ocorreu um erro');

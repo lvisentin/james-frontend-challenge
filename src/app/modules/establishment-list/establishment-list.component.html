@@ -1,4 +1,8 @@
-<main id="main-content">
+<james-loading [show]="loading"></james-loading>
+
+<james-header></james-header>
+
+<main id="main-content" *ngIf="establishments">
     <ng-container *ngFor="let establishment of establishments">
         <james-establishment-card 
             [establishment]="establishment"
