@@ -47,9 +47,7 @@ export class EstablishmentListComponent implements OnInit {
       })
       .pipe(takeUntil(this.destroy))
       .subscribe((result) => {
-        console.log('result', result)
       }, (err) => {
-        console.log('deu erro 2', err)
         this.error = true;
       })
   }
@@ -60,11 +58,9 @@ export class EstablishmentListComponent implements OnInit {
       .getAll('establishments')
       .pipe(takeUntil(this.destroy))
       .subscribe((establishments) => {
-        console.log('establishments', establishments)
         this.establishments = establishments;
         this.loading = false;
       }, (err) => {
-        console.log('deu erro 3')
         this.error = true;
       })  
   }
@@ -75,8 +71,6 @@ export class EstablishmentListComponent implements OnInit {
       .pipe(takeUntil(this.destroy))
       .subscribe((result) => {
         this.establishments = result;
-      }, (err) => {
-        console.log('err', err)
       })
   }
 

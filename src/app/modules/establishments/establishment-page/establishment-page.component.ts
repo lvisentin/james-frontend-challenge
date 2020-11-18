@@ -33,7 +33,6 @@ export class EstablishmentPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('establishment', this.establishment)
   }
 
   submitForm() {
@@ -63,14 +62,12 @@ export class EstablishmentPageComponent implements OnInit {
   }
 
   updateEstablishment(objEstablishment) {
-    console.log(objEstablishment)
     this.dbService
       .update('establishments', 
         objEstablishment
       )
       .subscribe((result) => {
         this.loading = false;
-        console.log('result', result)
         this.router.navigate(['/home']);
       }, (err) => {
         this.loading = false;

@@ -12,7 +12,6 @@ export class ErrorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('error show', this.show);
   }
 
   toggleDialog() {
