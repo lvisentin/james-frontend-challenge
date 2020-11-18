@@ -1,7 +1,8 @@
 <p align="center">
   <a href="https://github.com/james-delivery/frontend-challenge">
-    <img src="assets/img/logo.svg" alt="Logo" width="191" height="131">
+    <img src="/assets/img/logo.svg" alt="Logo" width="191" height="131">
   </a>
+   <h3 align="center">Front-end Challenge :trophy:</h3>
 </p>
 
 # James Front-end Challenge 🏆
